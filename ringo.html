@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Beatles - Ringo Starr</title>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+/* ===== Estilo do site The Beatles ===== */
+
+/* Cores usadas:
+   amarelo  #f2c230
+   vermelho #d7263d
+   preto    #1c1a17
+   creme    #fffaf0 */
+
+body {
+  margin: 0;
+  font-family: "Work Sans", Arial, sans-serif;
+  background-color: #fffaf0;
+  color: #1c1a17;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: "Righteous", Arial, sans-serif;
+  font-weight: normal;
+}
+
+/* ===== Menu ===== */
+header {
+  background-color: #1c1a17;
+  border-bottom: 5px solid #f2c230;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  color: #f2c230;
+  margin: 0;
+  font-size: 30px;
+}
+
+nav a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+nav a:hover {
+  background-color: #3a3631;
+}
+
+nav a.ativo {
+  background-color: #f2c230;
+  color: #1c1a17;
+}
+
+/* Submenu dos integrantes */
+.submenu {
+  display: inline-block;
+  position: relative;
+}
+
+.submenu-itens {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1c1a17;
+  border-top: 4px solid #f2c230;
+  border-radius: 0 0 10px 10px;
+  min-width: 190px;
+  padding: 8px;
+  z-index: 10;
+}
+
+.submenu-itens a {
+  display: block;
+  border-radius: 8px;
+}
+
+.submenu:hover .submenu-itens {
+  display: block;
+}
+
+/* ===== Conteúdo ===== */
+main {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+h2 {
+  color: #d7263d;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* Destaque da Home */
+.destaque {
+  background-color: #f2c230;
+  border-radius: 20px;
+  padding: 40px 30px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.destaque div.texto {
+  flex: 1;
+  min-width: 250px;
+}
+
+.destaque h2 {
+  color: #1c1a17;
+  font-size: 40px;
+  margin-top: 0;
+  line-height: 1.1;
+}
+
+.destaque p {
+  font-size: 18px;
+}
+
+/* Disco de vinil feito com CSS */
+.disco {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: repeating-radial-gradient(#111 0px, #111 6px, #2b2b2b 7px, #111 8px);
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  animation: girar 5s linear infinite;
+}
+
+.disco::after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: #d7263d;
+  border: 4px solid #f2c230;
+  border-radius: 50%;
+  top: 61px;
+  left: 61px;
+}
+
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Botão */
+.botao, button {
+  display: inline-block;
+  background-color: #1c1a17;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.botao:hover, button:hover {
+  background-color: #d7263d;
+}
+
+/* Cartões dos integrantes */
+.cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.cartao {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: #1c1a17;
+  transition: transform 0.2s;
+}
+
+.cartao:hover {
+  transform: translateY(-5px);
+}
+
+.cartao h3 {
+  margin: 10px 0 5px 0;
+}
+
+.cartao p {
+  margin: 0;
+  color: #666;
+}
+
+/* Círculo com as iniciais */
+.foto {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  color: white;
+  font-family: "Righteous", Arial, sans-serif;
+  font-size: 30px;
+  line-height: 80px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.grande {
+  width: 130px;
+  height: 130px;
+  font-size: 48px;
+  line-height: 130px;
+  margin: 0;
+  border: 5px solid white;
+}
+
+.vermelho { background-color: #d7263d; }
+.azul { background-color: #2b6cb0; }
+.verde { background-color: #2e8b57; }
+.laranja { background-color: #e07a1f; }
+
+/* Página de cada integrante */
+.topo-membro {
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  color: white;
+}
+
+.topo-membro h2 {
+  color: white;
+  font-size: 42px;
+  margin: 0;
+}
+
+.topo-membro p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.ficha {
+  background-color: white;
+  border-left: 6px solid #f2c230;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 25px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.ficha p {
+  margin: 5px 0;
+}
+
+/* Linha do tempo (página Sobre) */
+.linha-tempo {
+  list-style: none;
+  padding: 0;
+  border-left: 4px solid #f2c230;
+  margin-left: 10px;
+}
+
+.linha-tempo li {
+  padding: 0 0 20px 25px;
+  position: relative;
+}
+
+.linha-tempo li::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: #d7263d;
+  border-radius: 50%;
+}
+
+.linha-tempo strong {
+  color: #d7263d;
+  font-family: "Righteous", Arial, sans-serif;
+  font-size: 20px;
+  display: block;
+}
+
+/* Tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #f2c230;
+}
+
+tr:hover td {
+  background-color: #fff6d6;
+}
+
+/* ===== Formulário ===== */
+form {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 520px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #f2c230;
+  outline: none;
+}
+
+textarea {
+  height: 120px;
+}
+
+select {
+  background-color: white;
+}
+
+.erro {
+  display: block;
+  color: #d7263d;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#sucesso {
+  color: #2e8b57;
+  font-weight: bold;
+}
+
+button {
+  margin-top: 20px;
+}
+
+/* ===== Rodapé ===== */
+footer {
+  background-color: #1c1a17;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 50px;
+  border-top: 5px solid #f2c230;
+}
+
+/* ===== Celular ===== */
+@media (max-width: 600px) {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+  header h1 {
+    margin-bottom: 8px;
+  }
+  .destaque h2 {
+    font-size: 30px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>The Beatles</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="sobre.html">Sobre</a>
+      <div class="submenu">
+        <a href="#" class="ativo">Integrantes &#9662;</a>
+        <div class="submenu-itens">
+          <a href="john.html">John Lennon</a>
+          <a href="paul.html">Paul McCartney</a>
+          <a href="george.html">George Harrison</a>
+          <a href="ringo.html" class="ativo">Ringo Starr</a>
+        </div>
+      </div>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="topo-membro laranja">
+      <div class="foto grande laranja">RS</div>
+      <div>
+        <h2>Ringo Starr</h2>
+        <p>Bateria e vocal</p>
+      </div>
+    </div>
+
+    <div class="ficha">
+      <p><strong>Nascimento:</strong> 7 de julho de 1940, em Liverpool</p>
+      <p><strong>Instrumentos:</strong> Bateria e vocal</p>
+      <p><strong>Nos Beatles:</strong> 1962 a 1970</p>
+    </div>
+
+    <h2>História</h2>
+    <p>Ringo Starr nasceu no dia 7 de julho de 1940, em Liverpool, na Inglaterra. Seu nome verdadeiro é Richard Starkey.</p>
+    <p>Antes dos Beatles, ele tocava bateria em outra banda de Liverpool, a Rory Storm and the Hurricanes.</p>
+    <p>Ringo entrou nos Beatles em 1962, no lugar do baterista Pete Best. Ele também cantou algumas músicas, como "Yellow Submarine".</p>
+    <p>Depois do fim da banda, Ringo seguiu carreira solo e criou a All-Starr Band, que reúne vários músicos famosos.</p>
+    <p>Ringo continua tocando e é conhecido pelo seu lema de "paz e amor".</p>
+  </main>
+
+  <footer>
+    <p>Desenvolvido por Lara Fazani Ribeiro</p>
+  </footer>
+
+</body>
+</html>
